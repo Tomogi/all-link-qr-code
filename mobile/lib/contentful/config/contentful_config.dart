@@ -1,6 +1,6 @@
 class ContentfulConfig {
-  static const String spaceId = 'YOUR_SPACE_ID';
-  static const String accessToken = 'YOUR_ACCESS_TOKEN';
+  static const String spaceId = 'z68ov00izx50';
+  static const String accessToken = 'P3JvHUkwwhPJACspVUeo9scfoNiQDVIDq3qS5xXtzOk';
   static const String environment = 'master'; // or your custom environment
   
   // Contentful API endpoints
