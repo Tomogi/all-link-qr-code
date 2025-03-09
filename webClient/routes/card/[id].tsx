@@ -25,8 +25,10 @@ export default function CardVisitPage({ data }: PageProps<PageData>) {
   const { card } = data;
 
   return (
-    <article class="p-4 max-w-2xl mx-auto">
-      {JSON.stringify(card.fields.data)}
-    </article>  
+    <div class="flex items-center justify-center h-screen">
+      <article class="p-4 max-w-2xl">
+        {JSON.stringify(card.fields.data)}
+      </article>
+    </div>
   );
 } 
