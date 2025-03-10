@@ -1,5 +1,7 @@
+import MadeByMe from "../components/MadeByMe.tsx";
 import LinkList from "../islands/LinkList.tsx";
 import QrCode from "../islands/QrCode.tsx";
+
 export default function Home() {
   return (
     <>
@@ -19,6 +21,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <MadeByMe />
     </>
   );
 }
