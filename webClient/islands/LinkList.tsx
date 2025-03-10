@@ -1,33 +1,15 @@
 import { Button } from "../components/Button.tsx";
-import { signal } from "@preact/signals";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { TextInput } from "../components/TextInput.tsx";
+import { urls, addUrl, removeUrl, initializeUrls } from "../utils/store.ts";
 
-interface LinkListProps {}
-
-const urls = signal<string[]>([]);
-const test = signal<number>(0);
-
-(function () {
-  for (let i = 0; i < localStorage.length; i++) {
-    const url = localStorage.getItem(i.toString());
-    if (url) {
-      urls.value.push(url);
-    }
-  }
-})();
-
-export default function LinkList(props: LinkListProps) {
+export default function LinkList() {
   const [addingUrl, setAddingUrl] = useState("");
-  function addUrl(url: string) {
-    localStorage.setItem(urls.value.length.toString(), url);
-    urls.value.push(url);
-  }
-
-  function removeUrl(index: number) {
-    urls.value = urls.value.filter((_, _index) => index !== _index);
-    localStorage.removeItem(index.toString());
-  }
+  
+  // Initialize URLs from localStorage on component mount
+  useEffect(() => {
+    initializeUrls();
+  }, []);
 
   return (
     <ul>
