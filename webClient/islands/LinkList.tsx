@@ -26,7 +26,16 @@ export default function LinkList() {
         </li>
       ))}
       <li>
-        <TextInput value={addingUrl} onChange={(e) => setAddingUrl(e.target.value)} />
+        <TextInput 
+          value={addingUrl} 
+          onChange={(e) => setAddingUrl(e.target.value)} 
+          onKeyPress={(e) => {
+            if (e.key === 'Enter' && addingUrl.trim() !== "") {
+              addUrl(e.target.value);
+              setAddingUrl("");
+            }
+          }}
+        />
 
         <Button
           onClick={() => {
